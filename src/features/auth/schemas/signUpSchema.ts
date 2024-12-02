@@ -6,6 +6,7 @@ const schema: Schema = [
       defaultValues: { // these are the default values for the form
         firstName: ["", []],
         age: [18, []],
+        jobs: [[], []]
       },
       resolver: { // this is the resolver for the form, it is used to validate the form
         // firstName: [
@@ -40,6 +41,28 @@ const schema: Schema = [
                     step: 1,
                     className: "input-number"
                   }
+                },
+                {
+                  selectField: {
+                    placeholder: "Select a job",
+                    width: "w-full",
+                    // staticOptions: [
+                    //   { value: "developer", label: "Developer" },
+                    //   { value: "designer", label: "Designer" },
+                    //   { value: "manager", label: "Manager" }
+                    // ],
+                    fetchOptions: null,
+                    endpoint: "https://mis.alfapcsmax.com/admtramites/public/api/puestos",
+                    fetchConfig: {
+                      responseKey: "data",
+                      labelKey: "nombre",
+                      valueKey: "id"
+                    },
+                    onValueChange: null,
+                    multiple: false,
+                    searchable: false,
+                    disabled: false
+                  }
                 }
               ],
               button: {
@@ -55,6 +78,7 @@ const schema: Schema = [
     return: {
       firstName: "$firstName",
       age: "$age",
+      jobs: "$jobs"
     }
   }
 ];

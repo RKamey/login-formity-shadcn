@@ -14,9 +14,9 @@ import FormLayout from "@/components/formity/form-layout";
 import TextField from "@/components/formity/fields/text-field";
 import { Button } from "@/components/ui/button";
 import NumberField from "@/components/formity/fields/number-field";
+import SelectField, { SelectGroupConfig, SelectOption } from "@/components/formity/fields/select-field";
 
 import '@/styles/inputs.css';
-
 
 // Estos son los parametros que se le van a pasar a los componentes
 // solo se deben definir los que se requieren en el formulario
@@ -46,7 +46,24 @@ type Parameters = {
     max?: number;
     step?: number;
     className?: string;
-  }
+  },
+  selectField: {
+    placeholder?: string;
+    className?: string;
+    width?: string;
+    staticOptions?: SelectOption[] | SelectGroupConfig[];
+    fetchOptions?: () => Promise<unknown>;
+    endpoint?: string;
+    fetchConfig?: {
+      responseKey?: string;
+      labelKey?: string;
+      valueKey?: string;
+    };
+    onValueChange?: (value: string | string[]) => void;
+    multiple?: boolean;
+    searchable?: boolean;
+    disabled?: boolean;
+  },
   next: {
     text: string;
   }
@@ -89,6 +106,21 @@ const components: Components<Parameters> = {
       max={max}
       step={step}
       className={className}
+    />
+  ),
+  selectField: ({ placeholder, width, staticOptions, fetchOptions, endpoint, fetchConfig, onValueChange, multiple, searchable, disabled }) => (
+    <SelectField
+      key={1}
+      placeholder={placeholder}
+      width={width}
+      staticOptions={staticOptions}
+      fetchOptions={fetchOptions}
+      endpoint={endpoint}
+      fetchConfig={fetchConfig}
+      onValueChange={onValueChange}
+      multiple={multiple}
+      searchable={searchable}
+      disabled={disabled}
     />
   ),
   next: ({ text }) => <Button type="submit">{text}</Button>

@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 // ==== [ Pages ] ====
-// import Home from "@/pages/Home";
 import SignUp from "@/pages/SignUp";
 import SignIn from "@/pages/SignIn";
 import TestForm from "@/pages/TestForm";
 import ErrorPage from "@/components/messages/ErrorPage";
+import SelectDemo from "@/pages/TestComponents";
 import Home from "@/pages/Home";
 
 const Router = createBrowserRouter([
@@ -26,6 +26,11 @@ const Router = createBrowserRouter([
   {
     path: "/home",
     element: <Home />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/test-components",
+    element: <SelectDemo />,
     errorElement: <ErrorPage />
   }
 ]);
