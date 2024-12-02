@@ -13,12 +13,14 @@ interface TextFieldProps {
   type?: string;
   name: string;
   label: string;
+  className?: string;
 }
 
 export default function TextField({
   type = 'text',
   name,
   label,
+  className,
 }: TextFieldProps) {
   const id = useId();
   const { control, formState } = useFormContext();
@@ -37,10 +39,7 @@ export default function TextField({
               type={type}
               {...field}
               placeholder={label}
-              className={cn(
-                "focus-visible:ring-offset-2",
-                { "border-destructive focus-visible:ring-destructive": error }
-              )}
+              className={cn(className, { 'input-error': error })}
             />
           </FormControl>
           {error && <FormMessage>{error.message}</FormMessage>}

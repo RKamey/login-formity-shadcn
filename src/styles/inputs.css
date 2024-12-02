@@ -1,0 +1,31 @@
+.input-text, .input-number {
+  @apply w-full px-4 py-2.5 text-base 
+         border-2 border-gray-200 
+         rounded-lg 
+         bg-gray-50 
+         text-gray-800 
+         transition-all duration-300 
+         shadow-sm;
+}
+
+.input-text:hover, .input-number:hover {
+  @apply border-gray-400 shadow-md;
+}
+
+.input-text:focus, .input-number:focus {
+  @apply outline-none border-blue-500 
+         ring-4 ring-blue-500/20;
+}
+
+.input-text:disabled, .input-number:disabled {
+  @apply bg-gray-100 opacity-60 cursor-not-allowed;
+}
+
+.input-text.border-destructive, .input-number.border-destructive {
+  border-color: var(--tw-border-destructive);
+  color: var(--tw-text-destructive);
+}
+
+.input-text.border-destructive:focus, .input-number.border-destructive:focus {
+  box-shadow: 0 0 0 4px var(--tw-ring-destructive);
+}

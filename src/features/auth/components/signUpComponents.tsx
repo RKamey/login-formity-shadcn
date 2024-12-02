@@ -15,6 +15,9 @@ import TextField from "@/components/formity/fields/text-field";
 import { Button } from "@/components/ui/button";
 import NumberField from "@/components/formity/fields/number-field";
 
+import '@/styles/inputs.css';
+
+
 // Estos son los parametros que se le van a pasar a los componentes
 // solo se deben definir los que se requieren en el formulario
 type Parameters = {
@@ -34,6 +37,7 @@ type Parameters = {
   textField: {
     name: string;
     label: string;
+    className?: string;
   },
   numberField: {
     name: string;
@@ -70,7 +74,13 @@ const components: Components<Parameters> = {
       button={render(button)}
     />
   ),
-  textField: ({ name, label }) => <TextField name={name} label={label} />,
+  textField: ({ name, label, className }) => (
+    <TextField 
+      name={name} 
+      label={label} 
+      className={className}
+    />
+  ),
   numberField: ({ name, label, min, max, step, className }) => (
     <NumberField
       name={name}

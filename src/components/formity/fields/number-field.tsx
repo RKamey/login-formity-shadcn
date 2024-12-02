@@ -48,8 +48,6 @@ export default function NumberField({
               {...field}
               placeholder={label}
               className={cn(
-                "focus-visible:ring-offset-2",
-                { "border-destructive focus-visible:ring-destructive": error },
                 className
               )}
             />

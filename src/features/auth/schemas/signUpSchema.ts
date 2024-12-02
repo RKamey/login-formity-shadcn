@@ -28,6 +28,7 @@ const schema: Schema = [
                   textField: {
                     name: "firstName",
                     label: "First Name",
+                    className: "input-text"
                   },
                 },
                 {
@@ -37,6 +38,7 @@ const schema: Schema = [
                     min: 18,
                     max: 100,
                     step: 1,
+                    className: "input-number"
                   }
                 }
               ],
