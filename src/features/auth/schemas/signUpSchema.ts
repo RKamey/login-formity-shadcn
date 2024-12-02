@@ -5,6 +5,7 @@ const schema: Schema = [
     form: { // this is the form schema
       defaultValues: { // these are the default values for the form
         firstName: ["", []],
+        age: [18, []],
       },
       resolver: { // this is the resolver for the form, it is used to validate the form
         // firstName: [
@@ -29,6 +30,15 @@ const schema: Schema = [
                     label: "First Name",
                   },
                 },
+                {
+                  numberField: {
+                    name: "age",
+                    label: "Age",
+                    min: 18,
+                    max: 100,
+                    step: 1,
+                  }
+                }
               ],
               button: {
                 next: { text: "Sign Up" }
@@ -42,6 +52,7 @@ const schema: Schema = [
   {
     return: {
       firstName: "$firstName",
+      age: "$age",
     }
   }
 ];
