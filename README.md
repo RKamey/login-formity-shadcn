@@ -1,26 +1,67 @@
-# Login con Formity y Shadcn UI
+# 🔐 Login con Formity y Shadcn UI
 
-Este proyecto es un ejemplo de como se puede hacer un login con Formity y Shadcn UI.
+<div align="center">
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React Badge">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript Badge">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS Badge">
+</div>
 
-Formity es una librería que permite hacer formularios dinámicos, con validaciones, y altamente personalizables. Shadcn UI es una librería de componentes de React que permite hacer interfaces de usuario de forma rápida y sencilla.
+## 📝 Descripción del Proyecto
+Este proyecto es un ejemplo de implementación de un login utilizando dos tecnologías potentes:
 
-## Instalación
-Para instalar el proyecto, primero clona el repositorio:
+🚀 Formity: Una librería para crear formularios dinámicos y altamente personalizables.
+
+🎨 Shadcn UI: Librería de componentes de React para interfaces de usuario rápidas y elegantes
+
+El proyecto está pensado para ser un punto de partida en el desarrollo de formularios dinámicos, personalizables y rápidos de implementar.
+
+## 🛠️ Instalación
+
+Clonar el repositorio:
 
 ```bash
 git clone https://github.com/RKamey/login-formity-shadcn.git
+cd login-formity-shadcn
 ```
 
-Luego, instala las dependencias (puedes usar npm o yarn o cualquier otro gestor de paquetes):
-```bash
+Instalar dependencias:
+
+### Con bun
+```bashCopy
 bun install
 ```
+  
+### Con npm
+```bashCopy
+npm install
+```
 
-## Uso
-Para correr el proyecto, ejecuta el siguiente comando:
+### Con yarn
 
-```bash
+```bashCopy
+yarn install
+```
+
+## 🚀 Uso
+Para iniciar el servidor de desarrollo:
+
+### Con bun
+```bashCopy
 bun run dev
 ```
 
-Esto iniciará un servidor local en el puerto por defecto 5173 o en uno similar. Abre tu navegador y navega a `http://localhost:5173` para ver el proyecto.
+### Con npm
+```bashCopy
+npm run dev
+```
+
+### Con yarn
+
+```bashCopy
+yarn dev
+```
+
+Abre tu navegador en http://localhost:5173
+
+## 📄 Licencia
+Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE.md](LICENSE.md) para más detalles.
