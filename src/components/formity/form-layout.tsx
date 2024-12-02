@@ -1,6 +1,6 @@
 interface FormLayoutProps {
   heading: string;
-  description: string;
+  description?: string;
   fields: React.ReactNode[];
   button: React.ReactNode;
   back?: React.ReactNode;
@@ -16,7 +16,7 @@ export default function FormLayout({
   return (
     <div className="relative flex h-full w-full items-center justify-center p-0 lg:p-8">
       <div className="w-[115%] max-w-md shrink-0">
-        <h1 className="mb-3 text-center text-3xl font-medium text-white">
+        <h1 className="mb-3 text-center text-3xl font-medium">
           {heading}
         </h1>
         <p className="mb-6 text-center text-base text-neutral-500">
@@ -25,7 +25,9 @@ export default function FormLayout({
         <div className="scrollbar-hide mb-4 max-h-96 overflow-auto">
           <div className="space-y-4 pt-2">{fields}</div>
         </div>
-        {button}
+        <div className="flex justify-end">
+          {button}
+        </div>
       </div>
       {back && (
         <div className="absolute left-4 top-5 origin-top-left">{back}</div>

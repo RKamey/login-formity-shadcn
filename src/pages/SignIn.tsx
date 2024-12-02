@@ -1,36 +1,37 @@
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { Formity } from "formity";
-import schema from "@/features/auth/schemas/signUpSchema";
+
 import components from "@/features/auth/components/signUpComponents";
+import schema from "@/features/auth/schemas/signInSchema";
 
 /**
  * Entry point for the login page. Here we import the components and schema for the login form.
  * And it is passed to the Formity component.
  * @returns The login form.
  */
-const SignUp = () => {
+const SignIn = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
   const onReturn = (result: unknown) => {
-    console.log('from page', result);
+    console.log('from sign in', result);
     toast({
-      title: "Account created.",
-      description: "We've created your account for you.",
+      title: "Sign in successful.",
+      description: "You have successfully signed in.",
       duration: 4000,
       variant: "destructive"
-    });
-    navigate("/login");
+    })
+    navigate("/home");
   }
 
   return (
     <Formity
-      schema={schema}
       components={components}
+      schema={schema}
       onReturn={onReturn}
     />
   )
 }
 
-export default SignUp;
+export default SignIn;

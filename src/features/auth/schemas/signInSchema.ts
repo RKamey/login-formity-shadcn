@@ -20,8 +20,8 @@ const schema: Schema = [
           onNext: "$onNext",
           children: { // these are the children of the form
             formLayout: { // this is the form layout, we can configure here the heading and description of the form
-              heading: "Sign Up",
-              description: "Please fill out the form to sign up.",
+              heading: "Sign In",
+              description: "Please fill out the form to sign in.",
               fields: [ // these are the fields of the form, we need to specify the type of the field and the name of the field
                 {
                   textField: {
@@ -31,7 +31,7 @@ const schema: Schema = [
                 },
               ],
               button: {
-                next: { text: "Sign Up" }
+                next: { text: "Sign In" }
               }
             }
           }
