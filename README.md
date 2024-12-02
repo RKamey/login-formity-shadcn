@@ -1,50 +1,26 @@
-# React + TypeScript + Vite
+# Login con Formity y Shadcn UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un ejemplo de como se puede hacer un login con Formity y Shadcn UI.
 
-Currently, two official plugins are available:
+Formity es una librería que permite hacer formularios dinámicos, con validaciones, y altamente personalizables. Shadcn UI es una librería de componentes de React que permite hacer interfaces de usuario de forma rápida y sencilla.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
+Para instalar el proyecto, primero clona el repositorio:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/RKamey/login-formity-shadcn.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Luego, instala las dependencias (puedes usar npm o yarn o cualquier otro gestor de paquetes):
+```bash
+bun install
 ```
+
+## Uso
+Para correr el proyecto, ejecuta el siguiente comando:
+
+```bash
+bun run dev
+```
+
+Esto iniciará un servidor local en el puerto por defecto 5173 o en uno similar. Abre tu navegador y navega a `http://localhost:5173` para ver el proyecto.
