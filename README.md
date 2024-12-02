@@ -15,6 +15,7 @@
   - [Configuración de Formity](#-configuración-de-formity)
   - [Creación de Componentes](#-creación-de-componentes)
   - [Validaciones](#-validaciones)
+  - [Customización de Formularios](#-customización-de-formularios)
 - [Mejoras Futuras](#-mejoras-futuras)
 
 ## 📝 Descripción del Proyecto
@@ -327,6 +328,104 @@ resolver: "$resolver",
 ```
 
 Para más información sobre las validaciones y cómo implementarlas, puedes consultar la [documentación de Formity](https://www.formity.app/docs/form-schema/form).
+
+### 🎨 Customización de Formularios
+Es posible personalizar los formularios de Formity utilizando los componentes de Shadcn UI. Para ello, se deben crear componentes específicos que se adapten a los campos de Formity.
+
+Y para seguir con el dinamismo y la flexibilidad, los componentes podemos hacerlos genéricos, de tal manera que puedan ser utilizados en cualquier proyecto, y en el esquema, definir clases específicas para cada campo según nuestras necesidades.
+
+En el siguiente ejemplo, tenemos el componente `text-field.tsx`, utiliza Shadcn, en las props recibe `className` para añadir clases personalizadas, es decir, podemos tener un archivo de css o aplicarle clases de Tailwind CSS.
+
+```tsx
+// src/components/formity/fields/text-field.tsx
+import { useId } from "react";
+import { useFormContext, Controller } from "react-hook-form";
+import {   
+  FormControl,   
+  FormItem,    
+  FormLabel,    
+  FormMessage  
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+
+interface TextFieldProps {
+  type?: string;
+  name: string;
+  label: string;
+  className?: string;
+}
+
+export default function TextField({
+  type = 'text',
+  name,
+  label,
+  className,
+}: TextFieldProps) {
+  const id = useId();
+  const { control, formState } = useFormContext();
+  const error = formState.errors[name] as { message: string } | undefined;
+
+  return (
+    <Controller
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel htmlFor={id}>{label}</FormLabel>
+          <FormControl>
+            <Input
+              id={id}
+              type={type}
+              {...field}
+              placeholder={label}
+              className={cn(className, { 'input-error': error })}
+            />
+          </FormControl>
+          {error && <FormMessage>{error.message}</FormMessage>}
+        </FormItem>
+      )}
+    />
+  );
+}
+```
+
+En el archivo `signUpComponents.tsx`, en el componente `textField`, se puede añadir la prop `className` para personalizar el campo de texto.
+
+```tsx
+textField: ({ name, label, className }) => (
+    <TextField 
+      name={name} 
+      label={label} 
+      className={className}
+    />
+  ),
+```
+
+Y desde nuestro `schema` podemos definir las clases específicas para cada campo, o una clase genérica, dependiendo de las necesidades del proyecto.
+
+```tsx
+// Text Field con Tailwind CSS
+{
+  textField: {
+    name: "firstName",
+    label: "First Name",
+    className: "bg-gray-100" // Clase de Tailwind CSS
+  },
+},
+```
+
+```tsx
+// Text Field con clases específicas
+{
+  textField: {
+    name: "firstName",
+    label: "First Name",
+    className: "my-input" // Clase específica
+  },
+},
+```
+
 
 ## 📦 Mejoras Futuras
 Este proyecto es un punto de partida para el desarrollo de formularios dinámicos y personalizables. Algunas mejoras futuras que se pueden implementar son:
